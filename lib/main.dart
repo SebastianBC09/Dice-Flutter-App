@@ -6,8 +6,10 @@ void main() {
     MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          shadowColor: Color(0xFFBDC3C7),
           title: Text('Dicee'),
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xFF2C3E50),
         ),
         body: Container(
           decoration: BoxDecoration(
@@ -37,6 +39,7 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
+
   void changeDiceNumber () {
     setState(() {
       leftDiceNumber = Random().nextInt(6)+1;
