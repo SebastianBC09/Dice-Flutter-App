@@ -26,28 +26,37 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  const DicePage({Key? key}) : super(key: key);
+
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 1;
     return Center(
       child: Row(
         children: [
           Expanded(
-              child: TextButton(
-                onPressed: () {
-                  print('Left button has been pressed.');
-                },
-                  child: Image.asset('images/dice$leftDiceNumber.png'),
-              ),
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  leftDiceNumber = 3;
+                });
+              },
+              child: Image.asset('images/dice$leftDiceNumber.png'),
+            ),
           ),
           Expanded(
-              child: TextButton(
-                onPressed: () {
-                  print('Right button has been pressed.');
-                },
-                  child: Image.asset('images/dice2.png'),
-              ),
+            child: TextButton(
+              onPressed: () {
+                print('Right button has been pressed.');
+              },
+              child: Image.asset('images/dice2.png'),
+            ),
           ),
         ],
       ),
